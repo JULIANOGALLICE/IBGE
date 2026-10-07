@@ -8,7 +8,6 @@ import {
   RotateCcw,
   FileDown,
   Trash2,
-  Sparkles,
 } from 'lucide-react';
 import { CartorioConfig, EscrituraRecord } from '../types/ibge';
 import { generateIbgeExcelBlob } from '../utils/excelExporter';
@@ -25,7 +24,6 @@ interface HeaderProps {
   config: CartorioConfig;
   rawCsvText: string;
   onOpenUpload: () => void;
-  onResetData: () => void;
   onClearData: () => void;
 }
 
@@ -34,7 +32,6 @@ export const Header: React.FC<HeaderProps> = ({
   config,
   rawCsvText,
   onOpenUpload,
-  onResetData,
   onClearData,
 }) => {
   const [downloadingZip, setDownloadingZip] = React.useState(false);
@@ -212,7 +209,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Botão Esvaziar Dados (Solicitado pelo usuário) */}
-            {escrituras.length > 0 ? (
+            {escrituras.length > 0 && (
               <button
                 onClick={onClearData}
                 title="Esvaziar todos os dados da tela"
@@ -220,15 +217,6 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Trash2 className="w-3.5 h-3.5 text-rose-400" />
                 Esvaziar Dados
-              </button>
-            ) : (
-              <button
-                onClick={onResetData}
-                title="Carregar exemplo para demonstração"
-                className="inline-flex items-center gap-1 px-3 py-2 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                Carregar Exemplo
               </button>
             )}
           </div>

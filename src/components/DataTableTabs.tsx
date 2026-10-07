@@ -17,7 +17,6 @@ import {
   AlertTriangle,
   Upload,
   FileDown,
-  Sparkles,
   Filter,
   X,
   Trash2,
@@ -40,7 +39,6 @@ interface DataTableTabsProps {
   onSelectAlertFilter: (filter: string | null) => void;
   onEditEscritura?: (escritura: EscrituraRecord) => void;
   onOpenUpload: () => void;
-  onLoadSampleData: () => void;
   onClearData?: () => void;
 }
 
@@ -51,7 +49,6 @@ export const DataTableTabs: React.FC<DataTableTabsProps> = ({
   onSelectAlertFilter,
   onEditEscritura,
   onOpenUpload,
-  onLoadSampleData,
   onClearData,
 }) => {
   const [activeTab, setActiveTab] = React.useState<
@@ -244,7 +241,7 @@ export const DataTableTabs: React.FC<DataTableTabsProps> = ({
                 Nenhum dado carregado no momento
               </h3>
               <p className="text-xs text-slate-500">
-                O aplicativo iniciou vazio. Importe sua planilha <strong>.xlsx</strong> nos mesmos moldes do CSV ou carregue os dados de exemplo para testar a conversão.
+                Importe sua planilha de divórcios <strong>.xlsx</strong> ou <strong>.csv</strong> para validar e gerar os arquivos oficiais do IBGE.
               </p>
             </div>
 
@@ -263,14 +260,6 @@ export const DataTableTabs: React.FC<DataTableTabsProps> = ({
               >
                 <FileDown className="w-4 h-4 text-emerald-600" />
                 Baixar Modelo (.xlsx)
-              </button>
-
-              <button
-                onClick={onLoadSampleData}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition"
-              >
-                <Sparkles className="w-4 h-4 text-amber-500" />
-                Carregar Exemplo (33 atos)
               </button>
             </div>
           </div>

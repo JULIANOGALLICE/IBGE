@@ -12,7 +12,6 @@ import {
   computeEscrituraAlerts,
   generateValidationSummary,
 } from './utils/ibgeConverter';
-import { RAW_CSV_SAMPLE } from './utils/rawSampleData';
 import { Header } from './components/Header';
 import { SummaryCards } from './components/SummaryCards';
 import { CartorioConfigPanel } from './components/CartorioConfigPanel';
@@ -85,20 +84,6 @@ export default function App() {
     setActiveAlertFilter(null);
     const { escrituras: parsed, validations: valids } = parseCsvToEscrituras(
       newCsvContent,
-      config
-    );
-    setEscrituras(parsed);
-    setValidations(valids);
-  };
-
-  // Carregar dados de amostra do cartório
-  const handleLoadSampleData = () => {
-    setRawCsvText(RAW_CSV_SAMPLE);
-    setCurrentRawRows([]);
-    setImportedFileName('Amostra de Demonstração (Cartório PR)');
-    setActiveAlertFilter(null);
-    const { escrituras: parsed, validations: valids } = parseCsvToEscrituras(
-      RAW_CSV_SAMPLE,
       config
     );
     setEscrituras(parsed);
@@ -189,7 +174,6 @@ export default function App() {
         config={config}
         rawCsvText={rawCsvText}
         onOpenUpload={() => setIsUploadOpen(true)}
-        onResetData={handleLoadSampleData}
         onClearData={handleClearData}
       />
 
@@ -222,7 +206,6 @@ export default function App() {
           onSelectAlertFilter={setActiveAlertFilter}
           onEditEscritura={(e) => setEditingEscritura(e)}
           onOpenUpload={() => setIsUploadOpen(true)}
-          onLoadSampleData={handleLoadSampleData}
           onClearData={handleClearData}
         />
       </main>
