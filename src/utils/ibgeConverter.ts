@@ -81,7 +81,7 @@ export const DEFAULT_CONFIG: CartorioConfig = {
   nomeCartorio: 'SERVIÇO DISTRITAL DO UBERABA',
   anoPesquisa: '2026', // Ano
   trimPesquisa: '3', // 3º Trimestre (Jul/Ago/Set)
-  emptyChildrenAs99: true, // Conforme Regra 9 do PDF (99 para numéricos sem valor)
+  emptyChildrenAs99: false, // Padrão desmarcado ('00'). Quando marcado, preenche com '99' (Regra 9)
 };
 
 /**

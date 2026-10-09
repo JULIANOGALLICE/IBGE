@@ -154,7 +154,8 @@ export default function App() {
         setWindowDragActive(false);
       }}
       onDrop={handleWindowDrop}
-      className="min-h-screen bg-slate-100 flex flex-col font-sans text-slate-900 antialiased selection:bg-blue-600 selection:text-white relative"
+      translate="no"
+      className="notranslate min-h-screen bg-slate-100 flex flex-col font-sans text-slate-900 antialiased selection:bg-blue-600 selection:text-white relative"
     >
       {/* Overlay ao arrastar arquivo para a página */}
       {windowDragActive && (
